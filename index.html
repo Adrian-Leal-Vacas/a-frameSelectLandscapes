@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Interactions - A-Frame</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+        <img id="imagenCielo" src="img/cieloCuboAzul.jpg">
+        <img id="imagenPlaya" src="img/playaCuboNaranja.jpg">
+        <img id="imagenBosque" src="img/bosqueCuboVerde.jpg">
+        <img id="imagenArena" src="img/arenaCuboMarron.jpg">
+        <img id="imagenMar" src="img/marCuboAzulMar.jpg">
+        <img id="imagenGalaxia" src="img/galaxiaCuboAzulOscuro.jpg">
+      </a-assets>
+
+      <a-text value="SELECCIONA CON EL PUNTERO EL PAISAJE" position="-2.3 4 -5" color="#000"></a-text>
+      <a-text value="Poner la playa" position="-5.7 2 -5" color="#000"></a-text>
+      <a-text value="Poner el cielo" position="-3.4 3 -5" color="#000"></a-text>
+      <a-text value="Paque natural" position="-1.7 2 -5" color="#000"></a-text>
+      <a-text value="Arena" position="0.85 2.2 -5" color="#000"></a-text>
+      <a-text value="Mar" position="2.85 3.2 -5" color="#000"></a-text>
+      <a-text value="Galaxia" position="4.7 2 -5" color="#000"></a-text>
+
+      <a-box position="-5 1 -5" rotation="0 90 30" scale="1 1 1" color="#F44336"
+             event-set__enter="_event: mouseenter; _target: #bg; src: #imagenPlaya; color: ">
+      </a-box>
+      <a-box position="-2.7 2 -5" rotation="0 45 45" scale="0.75 0.75 0.75" color="#2196F3"
+             event-set__enter="_event: mouseenter; _target: #bg; src: #imagenCielo; color: ">
+      </a-box>
+      <a-box position="-1 1 -5" rotation="0 90 30" scale="0.75 0.75 0.75" color="#009688"
+             event-set__enter="_event: mouseenter; _target: #bg; src: #imagenBosque; color: ">            
+      </a-box>
+      <a-box position="1.2 1.2 -5" rotation="0 45 45" scale="0.9 0.9 0.9" color="#857845"
+             event-set__enter="_event: mouseenter; _target: #bg; src: #imagenArena; color: ">
+      </a-box>
+      <a-box position="3 2.2 -5" rotation="0 95 15" scale="0.9 0.9 0.9" color="#1244ff"
+        event-set__enter="_event: mouseenter; _target: #bg; src: #imagenMar; color: ">
+      </a-box>
+      <a-box position="5 1 -5" rotation="0 90 30" scale="0.9 0.9 0.9" color="#000025"
+        event-set__enter="_event: mouseenter; _target: #bg; src: #imagenGalaxia; color: ">
+      </a-box>
+      
+      <a-entity laser-controls="hand: left"></a-entity>
+      <a-entity laser-controls="hand: right"></a-entity>
+
+      <a-sky id="bg" color="#fff"></a-sky>
+
+      <a-plane src="#groundTexture" rotation="-90 0 0" width="12" height="12"></a-plane>
+      <a-camera raycaster="objects: .raycastable">
+        <a-cursor color="#ff0000"></a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
